@@ -3,11 +3,12 @@
   html,
  
 .leaflet-container {
-  width: 100vw !important;
-  height: 100vh !important;
+  width: 98vw !important;
+  height: 95vh /*calc(100vh - 215px) !important;*/
+ 
 }
 
 .MuiGrid-item {
-  border-right: 1px solid black !important;
+  border-right: 1px solid rgb(194, 185, 185) !important;
   border-bottom: 1px solid black !important;
 }

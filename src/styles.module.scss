@@ -1,5 +1,26 @@
 
 
+.SwitchModeButton {
+  margin: 10px !important;
+}
+
+.ActiveButton {
+  @extend .SwitchModeButton;
+  border: solid 1px red !important;
+  color: red !important; 
+}
+
+.InactiveButton {
+  @extend .SwitchModeButton;
+  border: solid 1px white !important;
+  color: white !important;
+}
+
+
+
+
+
+
 .custom_icon {
   justify-content: center;
   align-items: center;
@@ -19,16 +40,77 @@
     height: 15px;
 }
 
+.Banners {
+  z-index: 500;
+  width: 100%;
+  position: absolute;
+  background-color: #263238;
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  border-top: 1px solid black;
+}
 .SummaryDashboard {
-    text-align: center;
-    color: white;
-    background-color: #263238;
-    border-top: 1px solid black;
+ @extend .Banners;
+  bottom: 0;
     strong {
       color: #90a4ae;
     }
+  .Slider { 
+    width: 80%;
+    color: white;
+  }
+
+  .SliderLabel {
+      color:white;
+  }
+ 
+  .SliderThumb {
+      color: red;
+
+  }
+ 
+ 
+}
+
+.SwitchMode {
+  @extend .Banners;
+  top:0;
+}
 
 
 
+
+.OpenCloseArrow {
+  border: solid 3px !important;
+  align-content: center;
+  z-index: 999 !important;
+  position: absolute !important;
+  color: white !important;
+}
+
+
+.OpenCloseArrowBottom {
+  @extend .OpenCloseArrow;
+  transform: translate(-50%);
+  left: 50%;
+  bottom: 0px !important;
+  transition: bottom 1s !important
+}
+
+
+.OpenCloseArrowTop {
+  @extend .OpenCloseArrow;
+  transform: translate(-50%);
+  left: 50%;
+  top: 0px !important;
+  transition: top 1s !important
+}
+
+
+.container {
+    position: relative;
 }
  
+
+
