@@ -20,7 +20,7 @@ const DateSlider = (props) => {
 
   // To calculate the no. of days between two dates (subtract 1 since data is only updated at 23:59 UTC)
   const difference_in_days =
-    Math.floor(difference_in_time / (1000 * 3600 * 24)) - 1;
+    Math.floor(difference_in_time / (1000 * 3600 * 24)) - 10;
   console.log(difference_in_days);
   const marks = [
     {
@@ -29,7 +29,7 @@ const DateSlider = (props) => {
     },
     {
       value: difference_in_days,
-      label: "Yesterday"
+      label: ""
     }
   ];
 

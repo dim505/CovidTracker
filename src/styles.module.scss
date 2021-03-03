@@ -1,4 +1,6 @@
-
+@mixin border($width, $color) {
+  border: $width solid $color !important;
+}
 
 .SwitchModeButton {
   margin: 10px !important;
@@ -6,20 +8,15 @@
 
 .ActiveButton {
   @extend .SwitchModeButton;
-  border: solid 1px red !important;
-  color: red !important; 
+  @include border(1px, red);
+  color: red !important;
 }
 
 .InactiveButton {
   @extend .SwitchModeButton;
-  border: solid 1px white !important;
+  @include border(1px, white);
   color: white !important;
 }
-
-
-
-
-
 
 .custom_icon {
   justify-content: center;
@@ -30,14 +27,13 @@
   color: white;
   display: flex;
   background-color: darkred;
-  border: 2px solid lightcyan
+  @include border(2px, lightcyan);
 }
-
 
 .CountryFlag {
   padding-right: 10px;
-    width: 15px;
-    height: 15px;
+  width: 15px;
+  height: 15px;
 }
 
 .Banners {
@@ -51,66 +47,56 @@
   border-top: 1px solid black;
 }
 .SummaryDashboard {
- @extend .Banners;
+  @extend .Banners;
   bottom: 0;
-    strong {
-      color: #90a4ae;
-    }
-  .Slider { 
+  strong {
+    color: #90a4ae;
+  }
+  .Slider {
     width: 80%;
     color: white;
   }
 
   .SliderLabel {
-      color:white;
+    color: white;
   }
- 
-  .SliderThumb {
-      color: red;
 
+  .SliderThumb {
+    color: red;
   }
- 
- 
 }
 
 .SwitchMode {
   @extend .Banners;
-  top:0;
+  top: 0;
 }
 
-
-
-
 .OpenCloseArrow {
-  border: solid 3px !important;
+  @include border(3px, white);
   align-content: center;
   z-index: 999 !important;
   position: absolute !important;
   color: white !important;
+  transform: translate(-50%);
+  left: 50%;
 }
-
 
 .OpenCloseArrowBottom {
   @extend .OpenCloseArrow;
-  transform: translate(-50%);
-  left: 50%;
   bottom: 0px !important;
-  transition: bottom 1s !important
+  transition: bottom 1s !important;
 }
-
 
 .OpenCloseArrowTop {
   @extend .OpenCloseArrow;
-  transform: translate(-50%);
-  left: 50%;
   top: 0px !important;
-  transition: top 1s !important
+  transition: top 1s !important;
 }
-
 
 .container {
-    position: relative;
+  position: relative;
 }
- 
 
-
+.CheckBoxCenter {
+  justify-content: center;
+}

@@ -30,6 +30,7 @@ class AppState {
       "Get",
       "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv"
     ).then((results) => {
+      console.log(Papa.parse(results, { header: true }))
       this.HistoricalRecovered = Papa.parse(results, { header: true });
     });
 
