@@ -1,21 +1,30 @@
 import {useContext} from "react"
 import Typography from "@material-ui/core/Typography";
 import Circles from "./Circles";
-import Styles from "./styles.module.scss"
+import Styles from "../SCSS/styles.module.scss"
 import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
 import leaflet from "leaflet";
 import "leaflet/dist/leaflet.css";
-import appStateContext from "./Shared/appState"
+import appStateContext from "../Shared/appState"
 import { observer } from "mobx-react";
 
+
+//container that holds the map and all the sliders.
 const Map = (props) => {
         const appState = useContext(appStateContext)
 return (
     <MapContainer
+    maxBoundsViscosity={0.95}
     attributionControl={false}
     center={[0, 0]}
-    zoom={3}
+    zoom={2}
     scrollWheelZoom={false}
+    maxBounds={[
+      [-180, -90],
+      [180, 90]
+    ]}
+    
+
   >
     <TileLayer
       attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'

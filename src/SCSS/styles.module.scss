@@ -2,22 +2,26 @@
   border: $width solid $color !important;
 }
 
+//style for top slider button
 .SwitchModeButton {
   margin: 10px !important;
 }
 
+/*//style for top slider active button*/
 .ActiveButton {
   @extend .SwitchModeButton;
   @include border(1px, red);
   color: red !important;
 }
 
+/*//style for top slider inactive button*/
 .InactiveButton {
   @extend .SwitchModeButton;
   @include border(1px, white);
   color: white !important;
 }
 
+/*map marker custom style for current mode */
 .custom_icon {
   justify-content: center;
   align-items: center;
@@ -30,12 +34,14 @@
   @include border(2px, lightcyan);
 }
 
+/*style for country flag on map marker hover*/
 .CountryFlag {
   padding-right: 10px;
   width: 15px;
   height: 15px;
 }
 
+/*base class for sliders*/
 .Banners {
   z-index: 500;
   width: 100%;
@@ -46,31 +52,36 @@
   border-radius: 20px;
   border-top: 1px solid black;
 }
+
+/*bottom slider style */
 .SummaryDashboard {
   @extend .Banners;
   bottom: 0;
   strong {
     color: #90a4ae;
   }
+
+  /*historical date slider styles */
   .Slider {
     width: 80%;
     color: white;
   }
-
+  /*historical date slider styles */
   .SliderLabel {
     color: white;
   }
-
+  /*historical date slider styles */
   .SliderThumb {
     color: red;
   }
 }
-
+/*top slider style */
 .SwitchMode {
   @extend .Banners;
   top: 0;
 }
 
+/*arrow style for sliders*/
 .OpenCloseArrow {
   @include border(3px, white);
   align-content: center;
@@ -80,13 +91,13 @@
   transform: translate(-50%);
   left: 50%;
 }
-
+/*arrow style for sliders*/
 .OpenCloseArrowBottom {
   @extend .OpenCloseArrow;
   bottom: 0px !important;
   transition: bottom 1s !important;
 }
-
+/*arrow style for sliders*/
 .OpenCloseArrowTop {
   @extend .OpenCloseArrow;
   top: 0px !important;
@@ -97,6 +108,7 @@
   position: relative;
 }
 
+/*centers historical mode checkboxes*/
 .CheckBoxCenter {
   justify-content: center;
 }

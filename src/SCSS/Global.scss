@@ -5,7 +5,14 @@ html,
   height: 95vh; /*calc(100vh - 215px) !important;*/
 }
 
+//styling for the bottom slider components
 .MuiGrid-item {
   border-right: 1px solid rgb(194, 185, 185) !important;
   border-bottom: 1px solid black !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .styles_SummaryDashboard__37R3y .MuiTypography-h5 {
+    font-size: 1rem !important;
+  }
 }

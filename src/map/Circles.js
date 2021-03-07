@@ -4,8 +4,11 @@ import Typography from '@material-ui/core/Typography';
 import NumberFormat from "react-number-format";
 
 
+
+//component responisble for displaying the circles on a map
 const Circles = (props) => {
 
+  //renders label for each function
   const RenderLabel = () => {
         if (props.Type === "infected") {
           return "Infected:"
@@ -20,6 +23,8 @@ const Circles = (props) => {
 
 
   }
+
+  //returns circle on the map
   return props.data.map((row, i) => {
     if (row[props.date] <= 0) {
       // No cases on this date
@@ -32,7 +37,7 @@ const Circles = (props) => {
         <Circle
           key={i}
           center={[row["Lat"], row["Long"]]}
-          radius={650 * Math.sqrt(row[props.date])}
+          radius={550 * Math.sqrt(row[props.date])}
           fillOpacity={0.5}
           fillColor={props.color}
           stroke={false}

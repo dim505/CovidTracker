@@ -1,5 +1,7 @@
 import Grid from "@material-ui/core/Grid";
 import NumberFormat from "react-number-format";
+
+//component serves as the bottom row square in the bottom slider
 const SummaryGeneral = (props) => {
   return (
     <Grid item xs={4}>

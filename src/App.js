@@ -1,36 +1,47 @@
 import React, { useEffect, useState, useContext } from "react";
-import Styles from "./styles.module.scss";
+import Styles from "./SCSS/styles.module.scss";
 import appStateContext from "./Shared/appState";
 import { observer } from "mobx-react";
-import "./Global.scss";
+import "./SCSS/Global.scss";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import IconButton from "@material-ui/core/IconButton";
 import Fade from "react-reveal/Fade";
-import SummaryOverview from "./SummaryOverview"
+import SummaryOverview from "./map/BottomSlider/current/SummaryOverview"
 import moment from "moment";
-import HistoricalSummaryBoard from "./HistoricalSummaryBoard"
-import SwitchMode from "./SwitchMode"
-import Map from "./Map"
+import HistoricalSummaryBoard from "./map/BottomSlider/Historical/HistoricalSummaryBoard"
+import SwitchMode from "./map/TopSlider/SwitchMode"
+import Map from "./map/Map"
 
-
+//root container that hold everything 
 const App = () => {
+
   const appState = useContext(appStateContext);
+  //opens and closes bottom slider
   const [OpenSummary, SetOpenSummary] = useState(false);
-  //historical
+  //switches between historical and current mode
   const [ChangeMode, SetChangeMode] = useState("Current");
+  //opens top slider
   const [OpenChangeMode, SetOpenChangeMode] = useState(false);
+  //keeps track of the slider date for historical mode
   const [SelectedDate, SetSelectedDate] = useState("1/22/20");
-  const [InfectedOn, SetInfectedOn] = useState(false)
+  //checks if the infected flag is set for historical mode
+  const [InfectedOn, SetInfectedOn] = useState(true)
+  //checks if the recovered flag is set for historical mode
   const [RecoveredOn, SetRecoveredOn] = useState(false)
+  //checks if the dead flag is set for historical mode
   const [DeathOn, SetDeathOn] = useState(false)
 
+
+  //gets data
   useEffect(() => {
     appState.GetCovidData();
   }, []);
 
-
+  //opens top slider and sets some animations
   const OpenSliders = () => {
+   
+   //animations for the arrow 
     if (OpenChangeMode) {
       document
         .getElementsByClassName(
@@ -49,7 +60,11 @@ const App = () => {
 
   }
 
+
+  //opens bottom slider and sets some animations
   const OpenBottomSlider = () => {
+    
+    //animations for the arrow 
     if (OpenSummary) {
       document
         .getElementsByClassName(
@@ -71,30 +86,28 @@ const App = () => {
   }
 
   
-
+  //update dates at user sliders historical slider
   const HandleSliderUpdate = (value) => {
     SetSelectedDate(moment(value).format("M/D/YY"));
   };
 
-
-  const toggleInfectedData = () =>  {
-    
-    console.log(InfectedOn)
-    SetInfectedOn(!InfectedOn)
-    
-
-  }
+  //switches on infected mode in historical mode
+  const toggleInfectedData = () => SetInfectedOn(!InfectedOn)
   
-  
- 
+ //switches on recovered mode in historical mode
   const toggleRecoveredData = () =>   SetRecoveredOn(!RecoveredOn)
- 
+ //switches on death mode in historical mode
   const toggleDeathData = () =>   SetDeathOn(!DeathOn)
 
+
+  //resets the historical mode settings to default and changes the mode
   const ChangeModeFunc = (ModeToChange) => {
 
     if (ModeToChange === "Current") {
       SetSelectedDate("1/22/20")
+      SetDeathOn(false)
+      SetRecoveredOn(false)
+      SetInfectedOn(true)
 
     }
     SetChangeMode(ModeToChange)

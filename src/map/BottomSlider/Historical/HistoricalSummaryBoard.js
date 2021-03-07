@@ -3,9 +3,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import DateSlider from "./DateSlider";
 import Typography from "@material-ui/core/Typography";
-import Styles from "./styles.module.scss";
+import Styles from "../../../SCSS/styles.module.scss";
 
-
+//parent for the bottom slider historical component
 const HistoricalSummaryBoard = (props) => {
         return (
 

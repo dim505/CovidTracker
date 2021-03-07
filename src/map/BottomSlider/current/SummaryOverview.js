@@ -2,6 +2,8 @@ import SummaryTotal from "./SummaryTotal";
 import SummaryGeneral from "./SummaryGeneral";
 import Grid from "@material-ui/core/Grid";
 
+
+//parent that shows the current overall global covid statistics 
 const SummaryOverview = (props) => {
             return (
 

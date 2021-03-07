@@ -3,6 +3,8 @@ import NumberFormat from "react-number-format";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
+
+//component serves as the top row square in the buttom slider
 const SummaryTotal = (props) => {
   return (
     <Grid item xs={4}>

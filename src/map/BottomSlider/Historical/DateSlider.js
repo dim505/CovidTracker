@@ -1,9 +1,11 @@
 import Slider from "@material-ui/core/Slider";
 import React from "react";
-import Styles from "./styles.module.scss";
+import Styles from "../../../SCSS/styles.module.scss";
 
 const date_of_first_case = new Date("01/22/2020");
 
+
+//contains the date slider that user can interact with to see visual of covid 19 outbreak
 const DateSlider = (props) => {
   const handleChange = (event, newValue) => {
     var StartOfCovidDate = new Date("01/22/2020");

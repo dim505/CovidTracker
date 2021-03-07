@@ -1,9 +1,9 @@
-import Styles from "./styles.module.scss";
+import Styles from "../../SCSS/styles.module.scss";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Fade from "react-reveal/Fade";
 
-
+//component that allows you to switch between historical and current modes. Sits in the top slider
 const SwitchMode = (props) => {
         return (
             <Fade top when={props.OpenChangeMode}>
