@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import Styles from "./SCSS/styles.module.scss";
 import appStateContext from "./Shared/appState";
 import { observer } from "mobx-react";
@@ -12,6 +12,7 @@ import moment from "moment";
 import HistoricalSummaryBoard from "./map/BottomSlider/Historical/HistoricalSummaryBoard"
 import SwitchMode from "./map/TopSlider/SwitchMode"
 import Map from "./map/Map"
+import CenterFocusStrongIcon from '@material-ui/icons/CenterFocusStrong';
 
 //root container that hold everything 
 const App = () => {
@@ -31,8 +32,8 @@ const App = () => {
   const [RecoveredOn, SetRecoveredOn] = useState(false)
   //checks if the dead flag is set for historical mode
   const [DeathOn, SetDeathOn] = useState(false)
-
-
+  const [MapCenter, SetMapCenter] = useState([0, 0])
+  const MapRef = useRef(null)
   //gets data
   useEffect(() => {
     appState.GetCovidData();
@@ -99,7 +100,7 @@ const App = () => {
  //switches on death mode in historical mode
   const toggleDeathData = () =>   SetDeathOn(!DeathOn)
 
-
+  const SetMapRef = (mapInstance) => { MapRef.current = mapInstance}
   //resets the historical mode settings to default and changes the mode
   const ChangeModeFunc = (ModeToChange) => {
 
@@ -125,6 +126,24 @@ const App = () => {
                 OpenChangeMode={OpenChangeMode}
               />
  
+
+ <IconButton
+ onClick={() => {
+
+
+  MapRef.current.setView([0, 0],2)
+ 
+  console.log(MapRef)
+  /*MapRef.setZoom(3)SetMapCenter([0,0]) */
+ }
+}
+ classes={{ root: Styles.CenterMapIcon }}
+>
+
+<CenterFocusStrongIcon />
+
+</IconButton>
+
         <IconButton
           onClick={() => {
             OpenSliders()
@@ -139,6 +158,8 @@ const App = () => {
 
 
               <Map 
+              SetMapRef={SetMapRef}
+              MapCenter={MapCenter}
               RecoveredOn={RecoveredOn}
               ChangeMode={ChangeMode}
               InfectedOn={InfectedOn}

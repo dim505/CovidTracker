@@ -13,17 +13,20 @@ import { observer } from "mobx-react";
 const Map = (props) => {
         const appState = useContext(appStateContext)
 return (
-    <MapContainer
-    maxBoundsViscosity={0.95}
+    <MapContainer 
+    whenCreated={ mapInstance => { props.SetMapRef(mapInstance) } }
+    ref={props.MapRef}
     attributionControl={false}
-    center={[0, 0]}
+    center={props.MapCenter}
     zoom={2}
     scrollWheelZoom={false}
-    maxBounds={[
-      [-180, -90],
-      [180, 90]
-    ]}
-    
+    maxBounds={
+      [
+        [83.400042, -200.232458],
+        [-75.444244, 204.493903]
+    ]
+
+    } 
 
   >
     <TileLayer
