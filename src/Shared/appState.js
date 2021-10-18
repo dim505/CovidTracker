@@ -19,13 +19,13 @@ class AppState {
   GetCovidData = () => {
     
       //gets current covid data 
-    ApiCall("Get", "https://corona.lmao.ninja/v2/countries").then((results) => {
+    ApiCall("Get", "https://disease.sh/v2/countries").then((results) => {
       this.CovidData = results;
     });
 
     //gets overall global statistics for bottom slidersmmary
 
-    ApiCall("Get", "https://corona.lmao.ninja/v2/all").then((results) => {
+    ApiCall("Get", "https://disease.sh/v2/all").then((results) => {
       this.SummaryData = results;
     });
 
